@@ -1,0 +1,35 @@
+<html lang="en">
+    <head></head>
+    <body>
+        <div>
+            <canvas id="cvs" width="826px" height="593px" onclick=""></canvas>
+        </div>
+    </body>
+    <script type="text/javascript">
+        //获取canvas元素
+        var cvs = document.getElementById("cvs");
+        //创建image对象
+        var imgObj = new Image();
+        imgObj.src = "./u920.png";
+        //待图片加载完后，将其显示在canvas上
+        imgObj.onload = function() {
+            var ctx = cvs.getContext('2d');
+            ctx.drawImage(this, 0, 0, cvs.offsetWidth, imgObj.height * cvs.offsetWidth / imgObj.width); //this即是imgObj,保持图片的原始大小：470*480
+            //ctx.drawImage(this, 0, 0,1024,768);//改变图片的大小到1024*768
+        }
+        //     imgW = imgObj.width;
+        // imgH = imgObj.height;
+        // var ctx7 = c7.getContext("2d");
+        // ctx7.drawImage(this,0,0,cW,imgH*cW/imgW)
+        cvs.x = cvs.getBoundingClientRect().left;
+        cvs.y = cvs.getBoundingClientRect().top;
+        function click(e) {
+            console.log(e);
+            console.log("X coords: " + (e.clientX - cvs.x) + "<br> Y coords: " + (e.clientY - cvs.y));
+            alert("X coords: " + (e.clientX - cvs.x) + "\nY coords: " + (e.clientY - cvs.y));
+
+        }
+        cvs.addEventListener("click", click);
+    </script>
+
+</html>
