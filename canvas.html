@@ -2,7 +2,7 @@
     <head></head>
     <body>
         <div>
-            <canvas id="cvs" width="826px" height="593px" onclick=""></canvas>
+            <canvas id="cvs" width="400px" height="400px" onclick=""></canvas>
         </div>
     </body>
     <script type="text/javascript">
@@ -10,7 +10,7 @@
         var cvs = document.getElementById("cvs");
         //创建image对象
         var imgObj = new Image();
-        imgObj.src = "./u920.png";
+        imgObj.src = "https://img2.woyaogexing.com/2018/08/14/0e0c477c7da342dc80e96eebf25632fd!400x400.jpeg";
         //待图片加载完后，将其显示在canvas上
         imgObj.onload = function() {
             var ctx = cvs.getContext('2d');
